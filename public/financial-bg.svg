@@ -1,0 +1,24 @@
+<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" opacity="0.03">
+  <!-- Graph lines -->
+  <path d="M0,200 Q150,150 300,100 T600,50" stroke="#0EA5E9" stroke-width="2" fill="none"/>
+  <path d="M0,300 Q200,250 400,200 T800,150" stroke="#10B981" stroke-width="2" fill="none"/>
+  <path d="M100,400 Q250,350 400,300 T700,250" stroke="#0EA5E9" stroke-width="2" fill="none"/>
+  
+  <!-- Money symbols ($) -->
+  <text x="150" y="100" font-size="60" fill="#0EA5E9" font-family="Arial">$</text>
+  <text x="450" y="200" font-size="50" fill="#10B981" font-family="Arial">$</text>
+  <text x="750" y="300" font-size="55" fill="#0EA5E9" font-family="Arial">$</text>
+  
+  <!-- Chart bars -->
+  <rect x="200" y="180" width="40" height="120" fill="#0EA5E9" opacity="0.2"/>
+  <rect x="280" y="140" width="40" height="160" fill="#10B981" opacity="0.2"/>
+  <rect x="360" y="100" width="40" height="200" fill="#0EA5E9" opacity="0.2"/>
+  
+  <!-- Trending arrow -->
+  <path d="M500,250 L600,200 L580,210 L620,210 L580,220 Z" fill="#10B981" opacity="0.2"/>
+  
+  <!-- Growth line -->
+  <circle cx="700" cy="180" r="30" fill="#0EA5E9" opacity="0.1"/>
+  <circle cx="800" cy="120" r="35" fill="#10B981" opacity="0.1"/>
+</svg>
+
