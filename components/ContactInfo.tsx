@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Mail, Phone, MapPin, Clock, MessageCircle } from 'lucide-react'
+import { trackPhoneClick, trackWhatsAppClick } from '@/lib/tracking'
 
 export default function ContactInfo() {
   const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '971501234567'
@@ -10,8 +11,13 @@ export default function ContactInfo() {
   )
 
   const handleWhatsAppClick = () => {
+    trackWhatsAppClick('contact_page')
     const url = `https://wa.me/${whatsappNumber}?text=${defaultMessage}`
     window.open(url, '_blank')
+  }
+
+  const handlePhoneClick = () => {
+    trackPhoneClick('+971501234567')
   }
 
   return (
@@ -52,6 +58,7 @@ export default function ContactInfo() {
             <h3 className="font-semibold text-lg mb-1 text-gray-900">Phone</h3>
             <a
               href="tel:+971501234567"
+              onClick={handlePhoneClick}
               className="text-primary-blue hover:underline"
             >
               +971 50 123 4567
@@ -102,5 +109,7 @@ export default function ContactInfo() {
     </motion.div>
   )
 }
+
+
 
 

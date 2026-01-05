@@ -3,8 +3,11 @@
 import { useState, FormEvent } from 'react'
 import { motion } from 'framer-motion'
 import { Send, CheckCircle, AlertCircle } from 'lucide-react'
+import { useRouter } from 'next/navigation'
+import { trackFormSubmission } from '@/lib/tracking'
 
 export default function ContactForm() {
+  const router = useRouter()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -34,28 +37,15 @@ export default function ContactForm() {
       const data = await response.json()
 
       if (response.ok) {
-        setStatus({
-          type: 'success',
-          message: data.message || 'Thank you! We will contact you soon.',
+        // Track form submission
+        trackFormSubmission('contact_form', {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
         })
 
-        // Open WhatsApp with the enquiry message
-        const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '971501234567'
-        const whatsappMessage = encodeURIComponent(data.whatsappMessage || `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nMessage: ${formData.message}`)
-        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`
-        
-        // Open WhatsApp in a new window after a short delay
-        setTimeout(() => {
-          window.open(whatsappUrl, '_blank')
-        }, 1000)
-
-        // Reset form
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          message: '',
-        })
+        // Redirect to thank-you page
+        router.push('/thank-you')
       } else {
         setStatus({
           type: 'error',

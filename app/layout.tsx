@@ -2,8 +2,10 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import dynamic from 'next/dynamic'
-import Navbar from '@/components/Navbar'
+import ConditionalNavbar from '@/components/ConditionalNavbar'
 import Footer from '@/components/Footer'
+import GoogleTagManager from '@/components/GoogleTagManager'
+import GoogleAnalytics from '@/components/GoogleAnalytics'
 
 // Lazy load heavy components
 const WhatsAppButton = dynamic(() => import('@/components/WhatsAppButton'), {
@@ -296,8 +298,10 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.variable} ${inter.className}`}>
+        <GoogleTagManager />
+        <GoogleAnalytics />
         <FinancialBackground />
-        <Navbar />
+        <ConditionalNavbar />
         <main className="min-h-screen relative z-10">
           {children}
         </main>

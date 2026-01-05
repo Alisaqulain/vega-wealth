@@ -1,8 +1,14 @@
+'use client'
+
 import Link from 'next/link'
 import Image from 'next/image'
 import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook } from 'lucide-react'
+import { trackPhoneClick } from '@/lib/tracking'
 
 export default function Footer() {
+  const handlePhoneClick = () => {
+    trackPhoneClick('+971501234567')
+  }
   const currentYear = new Date().getFullYear()
 
   const services = [
@@ -123,6 +129,7 @@ export default function Footer() {
                 <Phone size={18} className="text-primary-blue" />
                 <a
                   href="tel:+971501234567"
+                  onClick={handlePhoneClick}
                   className="text-sm hover:text-primary-blue transition-colors"
                 >
                   +971 50 123 4567
