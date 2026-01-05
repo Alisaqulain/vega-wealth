@@ -2,11 +2,24 @@
 
 import { motion } from 'framer-motion'
 import { Target, Eye } from 'lucide-react'
+import dynamic from 'next/dynamic'
+
+const DubaiBackground = dynamic(() => import('@/components/DubaiBackground'), {
+  ssr: false,
+})
 
 export default function MissionVision() {
   return (
-    <section className="section-padding">
-      <div className="container-custom">
+    <section className="relative section-padding">
+      {/* Dubai background - dubai5.png */}
+      <DubaiBackground 
+        image="/dubai5.png" 
+        opacity={0.06} 
+        mobileOpacity={0.035}
+        blur={0}
+        gradientOverlay="light"
+      />
+      <div className="container-custom relative z-10">
         <div className="grid md:grid-cols-2 gap-12">
           {/* Mission */}
           <motion.div

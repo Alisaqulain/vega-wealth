@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import ContactForm from '@/components/ContactForm'
 import ContactInfo from '@/components/ContactInfo'
 import MapEmbed from '@/components/MapEmbed'
+import PageHeader from '@/components/PageHeader'
 
 export const metadata: Metadata = {
   title: 'Contact Us - The Vega Wealth | Dubai Financial Advisory | Free Consultation',
@@ -29,17 +30,12 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="pt-24 md:pt-36">
-      <div className="bg-gradient-primary section-padding">
-        <div className="container-custom text-center">
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-4">
-            Contact Us
-          </h1>
-          <p className="text-xl text-white/90 max-w-3xl mx-auto">
-            Let's discuss how we can help you achieve your financial goals
-          </p>
-        </div>
-      </div>
+    <div className="pt-32 md:pt-40">
+      <PageHeader 
+        title="Contact Us"
+        subtitle="Let's discuss how we can help you achieve your financial goals"
+        dubaiImage="/dubai3.png"
+      />
       <div className="section-padding">
         <div className="container-custom">
           <div className="grid md:grid-cols-2 gap-12 mb-16">

@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import MissionVision from '@/components/sections/MissionVision'
 import FounderSection from '@/components/sections/FounderSection'
 import CoreValues from '@/components/sections/CoreValues'
+import PageHeader from '@/components/PageHeader'
 
 export const metadata: Metadata = {
   title: 'About Us - The Vega Wealth | Our Mission & Vision | Financial Advisory Dubai',
@@ -29,17 +30,12 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="pt-24 md:pt-36">
-      <div className="bg-gradient-primary section-padding">
-        <div className="container-custom text-center">
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-4">
-            About The Vega Wealth
-          </h1>
-          <p className="text-xl text-white/90 max-w-3xl mx-auto">
-            Your trusted partner in building lasting wealth and securing your financial future
-          </p>
-        </div>
-      </div>
+    <div className="pt-32 md:pt-40">
+      <PageHeader 
+        title="About The Vega Wealth"
+        subtitle="Your trusted partner in building lasting wealth and securing your financial future"
+        dubaiImage="/dubai1.png"
+      />
       <MissionVision />
       <FounderSection />
       <CoreValues />

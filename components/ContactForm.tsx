@@ -75,7 +75,7 @@ export default function ContactForm() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className="glass-card p-8 rounded-2xl"
+      className="glass-form p-8 rounded-xl"
     >
       <h2 className="text-3xl font-bold mb-6 gradient-text">Get In Touch</h2>
       <p className="text-gray-600 mb-8">

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Inter, Playfair_Display } from 'next/font/google'
 import './globals.css'
 import dynamic from 'next/dynamic'
 import ConditionalNavbar from '@/components/ConditionalNavbar'
@@ -23,12 +23,22 @@ const ScrollToTop = dynamic(() => import('@/components/ScrollToTop'), {
 const FinancialBackground = dynamic(() => import('@/components/FinancialBackground'), {
   ssr: false,
 })
+const MobileStickyCTA = dynamic(() => import('@/components/MobileStickyCTA'), {
+  ssr: false,
+})
 
 const inter = Inter({ 
   subsets: ['latin'],
   display: 'swap',
   preload: true,
   variable: '--font-inter',
+})
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-playfair',
+  weight: ['400', '500', '600', '700', '800', '900'],
 })
 
 export const metadata: Metadata = {
@@ -297,7 +307,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.variable} ${inter.className}`}>
+      <body className={`${inter.variable} ${playfair.variable} ${inter.className}`}>
         <GoogleTagManager />
         <GoogleAnalytics />
         <FinancialBackground />
@@ -310,6 +320,7 @@ export default function RootLayout({
         <Chatbot />
         <ScrollProgress />
         <ScrollToTop />
+        <MobileStickyCTA />
       </body>
     </html>
   )

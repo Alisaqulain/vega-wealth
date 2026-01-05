@@ -9,34 +9,39 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          blue: '#0EA5E9',
-          'blue-dark': '#0284C7',
-          green: '#10B981',
-          'green-dark': '#059669',
+          navy: '#1E293B', // Navy blue
+          charcoal: '#334155', // Charcoal gray
+          'navy-dark': '#0F172A',
         },
         accent: {
-          purple: '#8B5CF6',
-          orange: '#F59E0B',
-          pink: '#EC4899',
+          gold: '#C9A961', // Muted brass/gold
+          'gold-light': '#D4A574',
+          'gold-dark': '#B8860B',
+          beige: '#F5E6D3', // Warm beige
+          ivory: '#F8F6F2', // Off-white/ivory
         },
         neutral: {
-          50: '#FAFAFA',
-          100: '#F5F5F5',
-          200: '#E5E5E5',
+          50: '#F8F6F2', // Off-white/ivory
+          100: '#F5F5F0', // Soft light gray
+          200: '#E8E6E1',
           300: '#D4D4D4',
           400: '#A3A3A3',
           500: '#737373',
           600: '#525252',
-          700: '#404040',
-          800: '#262626',
-          900: '#171717',
+          700: '#334155', // Charcoal gray
+          800: '#1E293B', // Navy
+          900: '#0F172A', // Dark navy
         },
       },
+      fontFamily: {
+        sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        serif: ['var(--font-playfair)', 'Georgia', 'serif'],
+      },
       backgroundImage: {
-        'gradient-primary': 'linear-gradient(135deg, #0EA5E9 0%, #10B981 100%)',
-        'gradient-secondary': 'linear-gradient(135deg, #10B981 0%, #0EA5E9 100%)',
-        'gradient-hero': 'linear-gradient(135deg, #E0F2FE 0%, #F0FDF4 50%, #E0F2FE 100%)',
-        'gradient-warm': 'linear-gradient(135deg, #FFF7ED 0%, #FEF3C7 50%, #ECFDF5 100%)',
+        'gradient-primary': 'linear-gradient(135deg, #1E293B 0%, #334155 100%)',
+        'gradient-secondary': 'linear-gradient(135deg, #334155 0%, #1E293B 100%)',
+        'gradient-hero': 'linear-gradient(135deg, #F8F6F2 0%, #F5F5F0 50%, #F5E6D3 100%)',
+        'gradient-warm': 'linear-gradient(135deg, #F8F6F2 0%, #F5E6D3 50%, #F5F5F0 100%)',
       },
     },
   },

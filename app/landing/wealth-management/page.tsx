@@ -9,7 +9,7 @@ import ContactForm from '@/components/ContactForm'
 
 export default function WealthManagementLanding() {
   return (
-    <div className="pt-8 pb-16">
+    <div className="pt-32 md:pt-40 pb-16">
       {/* Hero Section */}
       <section className="container-custom py-12 md:py-20">
         <div className="grid md:grid-cols-2 gap-12 items-center">

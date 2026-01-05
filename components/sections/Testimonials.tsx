@@ -63,12 +63,12 @@ export default function Testimonials() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-20 md:mb-24"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4">
-            What Our <span className="gradient-text">Clients Say</span>
+          <h2 className="heading-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-neutral-800 mb-6">
+            What Our Clients Say
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-neutral-600 max-w-2xl mx-auto leading-relaxed">
             Trusted by professionals, entrepreneurs, and investors across the UAE
           </p>
         </motion.div>
@@ -84,10 +84,10 @@ export default function Testimonials() {
               whileHover={{ y: -5 }}
               className="glass-card p-6 rounded-2xl relative"
             >
-              <Quote className="absolute top-6 right-6 text-primary-blue/20" size={40} />
+              <Quote className="absolute top-6 right-6 text-primary-navy/10" size={40} />
               
               <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center text-white text-2xl mr-4">
+                <div className="w-12 h-12 bg-primary-navy rounded-full flex items-center justify-center text-white text-2xl mr-4">
                   {testimonial.image}
                 </div>
                 <div>

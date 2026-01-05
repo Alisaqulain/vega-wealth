@@ -595,13 +595,13 @@ export default function Chatbot() {
       {!isOpen && (
         <motion.button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-40 bg-gradient-to-br from-primary-blue to-primary-green text-white p-4 md:p-5 rounded-full shadow-2xl hover:shadow-primary-blue/50 transition-all duration-300 group"
-          whileHover={{ scale: 1.1, rotate: [0, -10, 10, -10, 0] }}
+          className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-40 bg-primary-navy text-white p-4 md:p-5 rounded-full shadow-xl hover:shadow-2xl hover:bg-primary-charcoal transition-all duration-300 group"
+          whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           aria-label="Open chatbot"
         >
-          <Bot size={24} className="md:w-7 md:h-7 text-white" />
-          <span className="absolute right-full mr-4 top-1/2 -translate-y-1/2 bg-gray-900 text-white text-sm px-4 py-2 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-lg">
+          <MessageCircle size={28} className="md:w-8 md:h-8 text-white" strokeWidth={2} />
+          <span className="absolute right-full mr-4 top-1/2 -translate-y-1/2 bg-neutral-900 text-white text-sm px-4 py-2 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-lg">
             Chat with us
           </span>
         </motion.button>
@@ -617,17 +617,19 @@ export default function Chatbot() {
             className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 w-[calc(100vw-2rem)] max-w-[calc(100vw-2rem)] md:w-96 md:max-w-96 h-[calc(100vh-8rem)] max-h-[600px] bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden"
           >
             {/* Header */}
-            <div className="bg-gradient-primary text-white p-4 flex items-center justify-between">
+            <div className="bg-primary-navy text-white p-4 flex items-center justify-between">
               <div className="flex items-center space-x-3">
-                <Bot size={24} />
+                <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <MessageCircle size={20} className="text-white" strokeWidth={2} />
+                </div>
                 <div>
-                  <div className="font-semibold">Prosperity Advisor</div>
-                  <div className="text-xs opacity-90">Your Path to Financial Success</div>
+                  <div className="font-semibold text-base">Prosperity Advisor</div>
+                  <div className="text-xs opacity-80">Your Path to Financial Success</div>
                 </div>
               </div>
               <button
                 onClick={() => setIsOpen(false)}
-                className="hover:bg-white/20 p-1 rounded transition-colors"
+                className="hover:bg-white/20 p-1.5 rounded-lg transition-colors"
                 aria-label="Close chatbot"
               >
                 <X size={20} />
@@ -649,17 +651,17 @@ export default function Chatbot() {
                     <div
                       className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center ${
                         message.sender === 'user'
-                          ? 'bg-primary-blue text-white'
-                          : 'bg-primary-green text-white'
+                          ? 'bg-primary-navy text-white'
+                          : 'bg-accent-gold text-white'
                       }`}
                     >
-                      {message.sender === 'user' ? <User size={16} /> : <Bot size={16} />}
+                      {message.sender === 'user' ? <User size={16} /> : <MessageCircle size={16} />}
                     </div>
                     <div
-                      className={`rounded-2xl px-4 py-2 ${
+                      className={`rounded-xl px-4 py-2.5 ${
                         message.sender === 'user'
-                          ? 'bg-primary-blue text-white'
-                          : 'bg-white text-gray-800 shadow-sm'
+                          ? 'bg-primary-navy text-white'
+                          : 'bg-white text-neutral-800 shadow-sm border border-neutral-200'
                       }`}
                     >
                       <p className="text-sm">{message.text}</p>
@@ -695,14 +697,14 @@ export default function Chatbot() {
                 <button
                   onClick={handleSend}
                   disabled={!input.trim()}
-                  className="bg-gradient-primary text-white p-2 rounded-lg hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed transition-opacity"
+                  className="bg-primary-navy text-white p-2.5 rounded-lg hover:bg-primary-charcoal disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                   aria-label="Send message"
                 >
                   <Send size={20} />
                 </button>
               </div>
-              <p className="text-xs text-gray-500 mt-2">
-                Powered by AI • <a href="/contact" className="text-primary-blue hover:underline">Get human help</a>
+              <p className="text-xs text-neutral-500 mt-2">
+                Powered by AI • <a href="/contact" className="text-primary-navy hover:underline font-medium">Get human help</a>
               </p>
             </div>
           </motion.div>

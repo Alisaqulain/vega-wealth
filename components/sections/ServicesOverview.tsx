@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
 import { 
   TrendingUp, 
   Briefcase, 
@@ -10,6 +11,10 @@ import {
   FileText,
   ArrowRight 
 } from 'lucide-react'
+
+const DubaiBackground = dynamic(() => import('@/components/DubaiBackground'), {
+  ssr: false,
+})
 
 const services = [
   {
@@ -51,55 +56,52 @@ const services = [
 
 export default function ServicesOverview() {
   return (
-    <section className="section-padding">
-      <div className="container-custom">
+    <section className="relative section-padding">
+      {/* Dubai background - dubai2.png */}
+      <DubaiBackground 
+        image="/dubai2.png" 
+        opacity={0.06} 
+        mobileOpacity={0.035}
+        blur={0}
+        gradientOverlay="light"
+      />
+      <div className="container-custom relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-20 md:mb-24"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4">
-            Our <span className="gradient-text">Services</span>
+          <h2 className="heading-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-neutral-800 mb-6">
+            Our Services
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-neutral-600 max-w-2xl mx-auto leading-relaxed">
             Comprehensive financial solutions designed to help you achieve your goals
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => {
+        <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+          {services.slice(0, 3).map((service, index) => {
             const Icon = service.icon
             return (
               <motion.div
                 key={service.title}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -10, scale: 1.02 }}
-                className="glass-card p-8 rounded-2xl group hover:shadow-2xl transition-all duration-300 relative overflow-hidden"
+                transition={{ duration: 0.6, delay: index * 0.1, ease: 'easeOut' }}
+                className="glass-card p-8 md:p-10 rounded-xl h-full flex flex-col group"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary-blue/0 via-primary-green/0 to-primary-blue/0 group-hover:from-primary-blue/5 group-hover:via-primary-green/5 group-hover:to-primary-blue/5 transition-all duration-500" />
-                <div className="relative z-10">
-                  <div className={`w-16 h-16 bg-gradient-to-br ${service.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
-                    <Icon className="text-white" size={32} />
-                  </div>
-                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-3 text-gray-900">
-                    {service.title}
-                  </h3>
-                  <p className="text-gray-600 mb-6">
-                    {service.description}
-                  </p>
-                  <Link
-                    href={service.href}
-                    className="inline-flex items-center text-primary-blue font-semibold hover:gap-2 transition-all group/link"
-                  >
-                    Learn More
-                    <ArrowRight className="ml-1 group-hover/link:translate-x-1 transition-transform" size={18} />
-                  </Link>
+                <div className="w-14 h-14 md:w-16 md:h-16 bg-primary-navy rounded-lg flex items-center justify-center mb-6 flex-shrink-0">
+                  <Icon className="text-white" size={24} />
                 </div>
+                <h3 className="heading-serif text-xl md:text-2xl text-neutral-800 mb-4 flex-shrink-0">
+                  {service.title}
+                </h3>
+                <p className="text-sm md:text-base text-neutral-600 leading-relaxed flex-grow">
+                  {service.description}
+                </p>
               </motion.div>
             )
           })}
