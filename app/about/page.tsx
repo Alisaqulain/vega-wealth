@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="pt-32 md:pt-40">
+    <div className="pt-36 md:pt-44">
       <PageHeader 
         title="About The Vega Wealth"
         subtitle="Your trusted partner in building lasting wealth and securing your financial future"

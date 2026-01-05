@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="pt-32 md:pt-40">
+    <div className="pt-36 md:pt-44">
       <PageHeader 
         title="Contact Us"
         subtitle="Let's discuss how we can help you achieve your financial goals"

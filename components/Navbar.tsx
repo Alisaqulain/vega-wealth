@@ -38,17 +38,17 @@ export default function Navbar() {
       }`}
     >
       <div className="container-custom">
-        <div className="flex items-center justify-between h-24 md:h-32">
+        <div className="flex items-center justify-between h-28 md:h-36">
           {/* Logo - Transparent only, no text */}
           <Link href="/" className="group">
-            <div className="relative w-32 h-32 md:w-40 md:h-40 flex-shrink-0">
+            <div className="relative w-44 h-44 md:w-56 md:h-56 flex-shrink-0">
               <Image
                 src="/logo1.png"
                 alt="The Vega Wealth"
                 fill
                 className="object-contain transition-opacity duration-300 group-hover:opacity-90"
                 priority
-                sizes="(max-width: 768px) 128px, 160px"
+                sizes="(max-width: 768px) 176px, 224px"
               />
             </div>
           </Link>
